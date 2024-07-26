@@ -31,8 +31,10 @@ let recetas = [
 // Creacion de la lista de recetas disponibles para modificar o eliminar. disponibilidad global
 concatIdTitulo = []
 
-for (let i = 0; i < recetas.length; i++) {
-    concatIdTitulo.push(recetas[i].id + " - " + recetas[i].titulo + "\n")
+//for (let i = 0; i < recetas.length; i++) {
+for (let receta of recetas) {
+    //concatIdTitulo.push(recetas[i].id + " - " + recetas[i].titulo + "\n")
+    concatIdTitulo.push(receta.id + " - " + receta.titulo + "\n")
 }
 
 function agregar() {
