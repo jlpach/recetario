@@ -63,9 +63,36 @@ a {
 
  .portada-img-main {
     width: 100%; 
-    aspect-ratio: 16/9;
-    object-fit: cover;
+/*     aspect-ratio: 16/9;
+    object-fit: cover; */
 } 
+
+/* ------ Seccion Parrafo Descripcion ------ */
+.seccionDescParrafo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 40px;
+}
+
+/* ------ Seccion Opciones ------ */
+.seccionOpciones {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.crearBoton {
+    border: 1px solid gray;
+    padding: 10px 5px;
+    margin-bottom: 30px;     
+}
+
+.buscarBoton {
+    border: 1px solid gray;
+    padding: 10px 5px;    
+    margin-bottom: 30px; 
+}
 
 /* ------ Seccion Trabajos inicia ------ */
  .trabajos-encabezado {
