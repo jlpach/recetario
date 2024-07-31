@@ -31,8 +31,7 @@ let recetas = [
 let recetasContainer = document.getElementById("recetas-Container")
 
 function renderRecetas(arrRecetas) {
-    console.log("inside renderRecetas")
-    console.log(arrRecetas)
+    recetasContainer.innerHTML = ""
     arrRecetas.forEach(receta => {
         const card = document.createElement("div")
         card.innerHTML = `<h3>${receta.titulo}</h3>
@@ -40,10 +39,6 @@ function renderRecetas(arrRecetas) {
         recetasContainer.appendChild(card)
     })
 }
-
-
-
-/* renderRecetas(recetas) */
 
 // Creacion de la lista de recetas disponibles para modificar o eliminar. disponibilidad global
 concatIdTitulo = []
@@ -55,27 +50,25 @@ for (let receta of recetas) {
 let miFormulario = document.getElementById("formulario")
 miFormulario.addEventListener("submit", agregar)
 
-let miTitulo = document.getElementById("inputTitulo")
-let valorTitulo = miTitulo.value
 
-let miIngrediente = document.getElementById("inputIngrediente")
-let valorIngrediente = miIngrediente.value
-
-let miElaboracion = document.getElementById("inputElaboracion")
-let valorElaboracion = miElaboracion.value
 
 function agregar(e) {
     e.preventDefault()
 
+    let miTitulo = document.getElementById("inputTitulo").value
+    let miIngrediente = document.getElementById("inputIngrediente").value
+    let miElaboracion = document.getElementById("inputElaboracion").value
+
     const receta1 = {
-        titulo: valorTitulo,
-        ingredientes: valorIngrediente,
-        elaboracion: valorElaboracion
+        titulo: miTitulo,
+        ingredientes: miIngrediente,
+        elaboracion: miElaboracion
     }
 
     recetas.push(receta1)
 
     renderRecetas(recetas)
+
     /* let agregaTitulo = prompt("Agrega el título de la receta") */
     /* let agregaIngrediente = [] */
     /*     let agregaElaboracion = prompt("Agregar la explicaión de como cocinarias la receta")
