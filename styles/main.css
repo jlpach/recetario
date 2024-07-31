@@ -94,6 +94,11 @@ a {
     margin-bottom: 30px; 
 }
 
+/* ------ Sección Formulario ------ */
+.seccionFormulario {
+    margin: 60px;
+}
+
 /* ------ Seccion Trabajos inicia ------ */
  .trabajos-encabezado {
     display: flex;

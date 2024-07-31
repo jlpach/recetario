@@ -75,21 +75,45 @@
 		<main>
 			<section>
 				<div class="seccionDescParrafo">
-					<h1>Recetario de cocina</h1>
-					<p>
-						La idea principal del proyecto es generar una aplicacion web de
-						recetas de cocina la cual contendra: <br /><br />
-						Una página donde se puedan agregar las recetas necesarias. <br />
-
-						Una página que contenga un buscador de recetas, la cual desplegará
-						tantos resultados como encuentre por palabra clave. <br />
-						Dicha página desplegará las recetas previamente agregas una tras
-						otra en formato de Card, en ésta misma se tendrén las opciones de
-						Modificar y de Eliminar.
-					</p>
+					<h1>Crea una nueva receta de cocina</h1>
 				</div>
 			</section>
-			<section></section>
+			<section class="seccionFormulario">
+				<form class="row g-3" id="formulario">
+					<div class="col-12">
+						<label for="inputTitulo" class="form-label">Titulo</label>
+						<input
+							type="text"
+							class="form-control"
+							id="inputTitulo"
+							placeholder="Entra el nombre de tu receta" />
+					</div>
+					<div class="col-12">
+						<label for="inputIngrediente" class="form-label"
+							>Ingredientes</label
+						>
+						<input
+							type="text"
+							class="form-control"
+							id="inputIngrediente"
+							placeholder="Entra los ingredientes de tu receta" />
+					</div>
+					<div class="col-12">
+						<label for="inputElaboracion" class="form-label">Elaboración</label>
+						<input
+							type="text"
+							class="form-control"
+							id="inputIngrediente"
+							placeholder="Entra los ingredientes de tu receta" />
+					</div>
+					<div class="col-6">
+						<button type="submit" class="btn btn-primary" onclick="agregar">
+							Crear receta
+						</button>
+					</div>
+				</form>
+			</section>
+			<section id="recetas-Container"></section>
 		</main>
 
 		<!-- Footer -->
