@@ -52,8 +52,30 @@ for (let receta of recetas) {
     concatIdTitulo.push(receta.id + " - " + receta.titulo + "\n")
 }
 
+let miFormulario = document.getElementById("formulario")
+miFormulario.addEventListener("submit", agregar)
+
+let miTitulo = document.getElementById("inputTitulo")
+let valorTitulo = miTitulo.value
+
+let miIngrediente = document.getElementById("inputIngrediente")
+let valorIngrediente = miIngrediente.value
+
+let miElaboracion = document.getElementById("inputElaboracion")
+let valorElaboracion = miElaboracion.value
+
 function agregar(e) {
     e.preventDefault()
+
+    const receta1 = {
+        titulo: valorTitulo,
+        ingredientes: valorIngrediente,
+        elaboracion: valorElaboracion
+    }
+
+    recetas.push(receta1)
+
+    renderRecetas(recetas)
     /* let agregaTitulo = prompt("Agrega el título de la receta") */
     /* let agregaIngrediente = [] */
     /*     let agregaElaboracion = prompt("Agregar la explicaión de como cocinarias la receta")
@@ -66,9 +88,7 @@ function agregar(e) {
            elaboracion: agregaElaboracion
        } */
 
-    let miFormulario = document.getElementById("formulario")
-    console.log(miFormulario)
-    miFormulario.addEventListener("submit", renderRecetas(recetas))
+
 
     // Pedir al usuario uno o varios ingredientes
     /*     while (ingredientesArray !== 2) {
