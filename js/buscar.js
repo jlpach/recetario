@@ -3,10 +3,13 @@ cartStorage = JSON.parse(cartStorage)
 
 console.log("cartStorage: ", cartStorage)
 
+if (cartStorage === null)
+    cartStorage = "empty"
+
 let cardContainer = document.getElementById("cardRecetaBuscar")
 
 function renderRecetasBuscador(cardItems) {
-    if (cardItems === null) {
+    if (cardItems === "empty") {
         const card = document.createElement("div")
 
         card.innerHTML = `<a href="./pages/crear.html" rel="noopener noreferrer">Crear Recetas</a>`
