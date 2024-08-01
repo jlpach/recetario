@@ -12,7 +12,8 @@ function renderRecetasBuscador(cardItems) {
     if (cardItems === "empty") {
         const card = document.createElement("div")
 
-        card.innerHTML = `<a href="./pages/crear.html" rel="noopener noreferrer">Crear Recetas</a>`
+        card.innerHTML = `<h5>Aún no hay recetas, agrega una.</5>
+        <p><a href="./pages/crear.html" rel="noopener noreferrer">Crear Receta</a></p>`
 
         cardContainer.appendChild(card)
     } else {
