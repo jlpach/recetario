@@ -60,6 +60,7 @@ function agregar(e) {
     let miElaboracion = document.getElementById("inputElaboracion").value
 
     const receta1 = {
+        id: recetas.length,
         titulo: miTitulo,
         ingredientes: miIngrediente,
         elaboracion: miElaboracion
@@ -69,8 +70,8 @@ function agregar(e) {
 
     renderRecetas(recetas)
 
-    cardRecetas.push(recetas)
-    localStorage.setItem("cardRecetas", JSON.stringify(cardRecetas))
+    /* cardRecetas.push(recetas) */
+    localStorage.setItem("recetas", JSON.stringify(recetas))
 
     /* let agregaTitulo = prompt("Agrega el título de la receta") */
     /* let agregaIngrediente = [] */

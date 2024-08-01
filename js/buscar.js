@@ -1,16 +1,16 @@
-let cartStorage = localStorage.getItem("cardRecetas")
+let cartStorage = localStorage.getItem("recetas")
 cartStorage = JSON.parse(cartStorage)
 
 console.log(cartStorage)
 
-cartStorage.forEach(item => {
+for (const item of cartStorage) {
     console.log(item.titulo)
-})
+}
 
 let cardContainer = document.getElementById("cardRecetaBuscar")
 
 function renderRecetasBuscador(cardItems) {
-    cardItems.forEach(receta => {
+    for (const receta of cardItems) {
         const card = document.createElement("div")
 
         card.innerHTML = `<div class="card text-center mb-3" style = "width: 18rem;" >
@@ -22,7 +22,20 @@ function renderRecetasBuscador(cardItems) {
                           </div >`
 
         cardContainer.appendChild(card)
-    })
+    }
+    /*     cardItems.forEach(receta => {
+            const card = document.createElement("div")
+    
+            card.innerHTML = `<div class="card text-center mb-3" style = "width: 18rem;" >
+                                    <div class="card-body">
+                                        <h5 class="card-title">${receta.titulo}</h5>
+                                        <p class="card-text">${receta.elaboracion}</p>
+                                        <a href="#" class="btn btn-primary">Detalles</a>
+                                    </div>
+                              </div >`
+    
+            cardContainer.appendChild(card)
+        }) */
 }
 
 renderRecetasBuscador(cartStorage)
