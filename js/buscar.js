@@ -6,8 +6,7 @@ console.log("cartStorage: ", cartStorage)
 let cardContainer = document.getElementById("cardRecetaBuscar")
 
 function renderRecetasBuscador(cardItems) {
-    console.log(cardItems.length)
-    if (cardItems.length === 0 || cardItems.length === undefined) {
+    if (cardItems === null) {
         const card = document.createElement("div")
 
         card.innerHTML = `<a href="./pages/crear.html" rel="noopener noreferrer">Crear Recetas</a>`
