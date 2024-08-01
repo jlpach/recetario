@@ -1,8 +1,6 @@
 let cartStorage = localStorage.getItem("recetas")
 cartStorage = JSON.parse(cartStorage)
 
-console.log("cartStorage: ", cartStorage)
-
 if (cartStorage === null)
     cartStorage = "empty"
 
@@ -13,7 +11,11 @@ function renderRecetasBuscador(cardItems) {
         const card = document.createElement("div")
 
         card.innerHTML = `<h5>Aún no hay recetas, agrega una.</5>
-        <p><a href="./pages/crear.html" rel="noopener noreferrer">Crear Receta</a></p>`
+                            <p>
+                                <a href="./pages/crear.html" rel="noopener noreferrer">
+                                    Crear Receta
+                                </a>
+                            </p>`
 
         cardContainer.appendChild(card)
     } else {
