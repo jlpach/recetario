@@ -12,7 +12,7 @@ function renderRecetasBuscador(cardItems) {
 
         card.innerHTML = `<h5>Aún no hay recetas, agrega una.</5>
                             <p>
-                                <a href="./pages/crear.html" rel="noopener noreferrer">
+                                <a href="../pages/crear.html" rel="noopener noreferrer">
                                     Crear Receta
                                 </a>
                             </p>`
