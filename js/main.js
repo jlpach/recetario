@@ -28,6 +28,8 @@ let recetas = [
     }
 ]
 
+const cardRecetas = []
+
 let recetasContainer = document.getElementById("recetas-Container")
 
 function renderRecetas(arrRecetas) {
@@ -50,8 +52,6 @@ for (let receta of recetas) {
 let miFormulario = document.getElementById("formulario")
 miFormulario.addEventListener("submit", agregar)
 
-
-
 function agregar(e) {
     e.preventDefault()
 
@@ -68,6 +68,9 @@ function agregar(e) {
     recetas.push(receta1)
 
     renderRecetas(recetas)
+
+    cardRecetas.push(recetas)
+    localStorage.setItem("cardRecetas", JSON.stringify(cardRecetas))
 
     /* let agregaTitulo = prompt("Agrega el título de la receta") */
     /* let agregaIngrediente = [] */
