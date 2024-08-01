@@ -75,18 +75,21 @@
 		<main>
 			<section>
 				<div class="seccionDescParrafo">
-					<h1>Recetario de cocina</h1>
-					<p>
-						La idea principal del proyecto es generar una aplicacion web de
-						recetas de cocina la cual contendra: <br /><br />
-						Una página donde se puedan agregar las recetas necesarias. <br />
-
-						Una página que contenga un buscador de recetas, la cual desplegará
-						tantos resultados como encuentre por palabra clave. <br />
-						Dicha página desplegará las recetas previamente agregas una tras
-						otra en formato de Card, en ésta misma se tendrén las opciones de
-						Modificar y de Eliminar.
-					</p>
+					<h1>Busca tu receta favorita</h1>
+					<div class="input-group mb-3">
+						<input
+							type="text"
+							class="form-control"
+							placeholder="Escribe palabras clave"
+							aria-label="Escribe palabras clave"
+							aria-describedby="button-addon2" />
+						<button
+							class="btn btn-outline-secondary"
+							type="button"
+							id="button-addon2">
+							Buscar
+						</button>
+					</div>
 				</div>
 			</section>
 			<section id="cardRecetaBuscar"></section>
