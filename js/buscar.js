@@ -1,6 +1,8 @@
 let cartStorage = localStorage.getItem("recetas")
 cartStorage = JSON.parse(cartStorage)
 
+console.log("cartStorage: ", cartStorage)
+
 let cardContainer = document.getElementById("cardRecetaBuscar")
 
 function renderRecetasBuscador(cardItems) {
