@@ -41,8 +41,13 @@ function renderRecetas(arrRecetas) {
 
     arrRecetas.forEach(receta => {
         const card = document.createElement("div")
-        card.innerHTML = `<h4>${receta.titulo}</h4>
-                        <p>${receta.elaboracion}</p>`
+        card.innerHTML = `<div class="card text-center mb-3 shadow-sm" style = "width: 18rem;" >
+                                <div class="card-body">
+                                    <h4 class="card-title">${receta.titulo}</h4>
+                                    <p class="card-text">${receta.elaboracion}</p>
+                                    <a href="#" class="btn btn-primary">Detalles</a>
+                                </div>
+                        </div >`
         recetasContainer.appendChild(card)
         card.classList.add("listRecetasDinamica")
     })

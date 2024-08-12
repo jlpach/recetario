@@ -24,7 +24,7 @@ function renderRecetasBuscador(cardItems) {
             const card = document.createElement("div")
             card.className = "secRecetaBuscar"
 
-            card.innerHTML = `<div class="card text-center mb-3 secRecetaBuscar" style = "width: 18rem;" >
+            card.innerHTML = `<div class="card text-center mb-3 shadow-sm secRecetaBuscar" style = "width: 18rem;" >
                                 <div class="card-body">
                                     <h5 class="card-title">${receta.titulo}</h5>
                                     <p class="card-text">${receta.elaboracion}</p>
