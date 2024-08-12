@@ -9,6 +9,7 @@ let cardContainer = document.getElementById("cardRecetaBuscar")
 function renderRecetasBuscador(cardItems) {
     if (cardItems === "empty") {
         const card = document.createElement("div")
+        card.className = "secRecetaBuscar"
 
         card.innerHTML = `<h5>Aún no hay recetas, agrega una.</5>
                             <p>
@@ -21,8 +22,9 @@ function renderRecetasBuscador(cardItems) {
     } else {
         for (const receta of cardItems) {
             const card = document.createElement("div")
+            card.className = "secRecetaBuscar"
 
-            card.innerHTML = `<div class="card text-center mb-3" style = "width: 18rem;" >
+            card.innerHTML = `<div class="card text-center mb-3 secRecetaBuscar" style = "width: 18rem;" >
                                 <div class="card-body">
                                     <h5 class="card-title">${receta.titulo}</h5>
                                     <p class="card-text">${receta.elaboracion}</p>

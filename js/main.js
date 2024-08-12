@@ -34,11 +34,17 @@ let recetasContainer = document.getElementById("recetas-Container")
 
 function renderRecetas(arrRecetas) {
     recetasContainer.innerHTML = ""
+
+    /*     const listaRecetasTitulo = document.createElement("div")
+        listaRecetasTitulo.innerHTML = `<h3>Lista actualizada de recetas</h3>`
+        recetasContainer.appendChild(listaRecetasTitulo) */
+
     arrRecetas.forEach(receta => {
         const card = document.createElement("div")
-        card.innerHTML = `<h3>${receta.titulo}</h3>
-                          <p>${receta.elaboracion}</p>`
+        card.innerHTML = `<h4>${receta.titulo}</h4>
+                        <p>${receta.elaboracion}</p>`
         recetasContainer.appendChild(card)
+        card.classList.add("listRecetasDinamica")
     })
 }
 
@@ -72,68 +78,20 @@ function agregar(e) {
 
     /* cardRecetas.push(recetas) */
     localStorage.setItem("recetas", JSON.stringify(recetas))
-
-    /* let agregaTitulo = prompt("Agrega el título de la receta") */
-    /* let agregaIngrediente = [] */
-    /*     let agregaElaboracion = prompt("Agregar la explicaión de como cocinarias la receta")
-        let ingredientesArray = parseInt(prompt("Escribe 1 si deseas agregar un ingrediente. \n\nPresiona 2 para salir.\n\n")) */
-
-    // creacion de un objeto que permita almacenar los datos necesarios para una receta
-    /*    const receta1 = {
-           titulo: agregaTitulo,
-           ingredientes: agregaIngrediente,
-           elaboracion: agregaElaboracion
-       } */
-
-
-
-    // Pedir al usuario uno o varios ingredientes
-    /*     while (ingredientesArray !== 2) {
-            if (ingredientesArray === 1) {
-                if (agregaIngrediente === undefined || agregaIngrediente.length === 0) {
-                    /* let primerIngrediente = prompt("Ingresa un ingrediente") 
-                    agregaIngrediente.push(primerIngrediente)
-                } else {
-                    /* let otroIngrediente = prompt("Ingresa otro ingrediente") 
-                    agregaIngrediente.push(otroIngrediente)
-                }
-            } else {
-                alert("Numero incorrecto")
-            } */
-
-    /*  ingredientesArray = parseInt(prompt("Escribe 1 si deseas agregar un ingrediente. \n\nPresiona 2 para salir.\n\n")) */
-    /*  } */
-
-    /* alert("Receta agregada exitosamente. \n\nPresiona Enter para continuar.") */
-
-    // NOTA: Activa el inspector de codigo para ver el resultado en la consola
-    /* console.log(receta1) */
 }
 
 function modificar() {
     // Mostrar lista de recetas para seleccionar una a modificar
-    /* let recetaSeleccionada = parseInt(prompt("Ingrese el número de la receta que desea modificar: \n" + concatIdTitulo)); */
 
     // Verificar si el número ingresado es válido y está dentro del rango de recetas existentes
     if (recetaSeleccionada >= 0 && recetaSeleccionada < recetas.length) {
         // Mostrar los detalles de la receta seleccionada
         let receta = recetas[recetaSeleccionada];
 
-        // Mostrar opciones para modificar
-        /*         let opcionModificar = parseInt(prompt(
-                    "Qué deseas modificar?\n" +
-                    "1 - Título\n" +
-                    "2 - Ingredientes\n" +
-                    "3 - Elaboración\n" +
-                    "4 - Salir"
-                )); */
-
         switch (opcionModificar) {
             case 1:
                 // Modificar título
-                /* let nuevoTitulo = prompt("Ingresa el nuevo título:"); */
                 receta.titulo = nuevoTitulo;
-                /* alert("Título modificado exitosamente."); */
 
                 // NOTA: Activa el inspector de codigo para ver el resultado en la consola
                 console.log(receta.titulo)
@@ -195,36 +153,3 @@ function eliminar() {
     // NOTA: Activa el inspector de codigo para ver el resultado en la consola
     console.log(recetas)
 }
-
-// Inicializacion del programa
-/* let iniciar = parseInt(prompt("Ingresa el numero que corresponda a la acción que deseas hacer:"
-    + "\n1 - Crear receta nueva."
-    + "\n2 - Modificar receta existente."
-    + "\n3 - Eliminar receta existente."
-    + "\n4 - Salir.")) */
-
-// Seleccion de funcion a ejecutar
-/* while (iniciar !== 4) {
-    switch (iniciar) {
-        case 1:
-            agregar()
-            break
-        case 2:
-            modificar()
-            break
-        case 3:
-            eliminar()
-            break
-        default:
-            alert("Opcion incorrecta")
-    } */
-
-/*     iniciar = parseInt(prompt("Ingresa el numero que corresponda a la acción que deseas hacer:"
-        + "\n1 - Crear receta nueva."
-        + "\n2 - Modificar receta existente."
-        + "\n3 - Eliminar receta existente."
-        + "\n4 - Salir.")) */
-/* } */
-
-// Alerta que avisa de la finalizacion del programa
-/* alert("Programa finalizado, presiona Enter para cerrar") */
