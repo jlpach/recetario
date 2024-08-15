@@ -1,0 +1,22 @@
+{
+    "recetas": [
+        {
+            "id": 1,
+            "titulo": "Tacos de Pollo",
+            "ingredientes": "500g de pechuga de pollo, 12 tortillas de maíz, 1 cebolla picada, 1 pimiento rojo en tiras, 2 dientes de ajo picados, Sal y pimienta al gusto, Cilantro fresco para decorar, Salsa al gusto",
+            "elaboracion": "Cocina la pechuga de pollo en agua con sal hasta que esté cocida. Deshebra el pollo y reserva. En una sartén, sofríe la cebolla, el pimiento y el ajo hasta que estén suaves. Agrega el pollo deshebrado a la sartén y mezcla bien. Calienta las tortillas en un comal. Rellena las tortillas con la mezcla de pollo. Decora con cilantro y sirve con salsa."
+        },
+        {
+            "id": 2,
+            "titulo": "Ensalada César",
+            "ingredientes": "500g de pechuga de pollo, 12 tortillas de maíz, 1 cebolla picada, 1 pimiento rojo en tiras, 2 dientes de ajo picados, Sal y pimienta al gusto, Cilantro fresco para decorar, Salsa al gusto",
+            "elaboracion": "Cocina la pechuga de pollo en agua con sal hasta que esté cocida. Deshebra el pollo y reserva. En una sartén, sofríe la cebolla, el pimiento y el ajo hasta que estén suaves. Agrega el pollo deshebrado a la sartén y mezcla bien. Calienta las tortillas en un comal. Rellena las tortillas con la mezcla de pollo. Decora con cilantro y sirve con salsa."
+        },
+        {
+            "id": 3,
+            "titulo": "Pasta Carbonara",
+            "ingredientes": "500g de pechuga de pollo, 12 tortillas de maíz, 1 cebolla picada, 1 pimiento rojo en tiras, 2 dientes de ajo picados, Sal y pimienta al gusto, Cilantro fresco para decorar, Salsa al gusto",
+            "elaboracion": "Cocina la pechuga de pollo en agua con sal hasta que esté cocida. Deshebra el pollo y reserva. En una sartén, sofríe la cebolla, el pimiento y el ajo hasta que estén suaves. Agrega el pollo deshebrado a la sartén y mezcla bien. Calienta las tortillas en un comal. Rellena las tortillas con la mezcla de pollo. Decora con cilantro y sirve con salsa."
+        }
+    ]
+}

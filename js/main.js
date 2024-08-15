@@ -7,7 +7,7 @@
 
 // Dado que no se tiene conocimiento de base de datos aun, se crea un arreglo de objetos para 
 // ser usados como datos al momento de modificar o eliminar
-let recetas = [
+/* let recetas = [
     {
         id: 0,
         titulo: "Frijol con puerco",
@@ -26,7 +26,7 @@ let recetas = [
         ingredientes: "Pollo, Empanizador, Huevo, Aceite",
         elaboracion: "Mezclar el pollo con el huevo y el empanizador, ponerlas a freir en aceite, servir"
     }
-]
+] */
 
 const cardRecetas = []
 
@@ -53,12 +53,7 @@ function renderRecetas(arrRecetas) {
     })
 }
 
-// Creacion de la lista de recetas disponibles para modificar o eliminar. disponibilidad global
-concatIdTitulo = []
-
-for (let receta of recetas) {
-    concatIdTitulo.push(receta.id + " - " + receta.titulo + "\n")
-}
+// Creacion de la lista de recetas disponibles para modificar o eliminar. 
 
 let miFormulario = document.getElementById("formulario")
 miFormulario.addEventListener("submit", agregar)
@@ -70,19 +65,34 @@ function agregar(e) {
     let miIngrediente = document.getElementById("inputIngrediente").value
     let miElaboracion = document.getElementById("inputElaboracion").value
 
-    const receta1 = {
-        id: recetas.length,
-        titulo: miTitulo,
-        ingredientes: miIngrediente,
-        elaboracion: miElaboracion
-    }
+    fetch("../recetas.json")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Error al cargar el archivo JSON');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const receta1 = {
+                id: data.recetas.length + 1,
+                titulo: miTitulo,
+                ingredientes: miIngrediente,
+                elaboracion: miElaboracion
+            }
 
-    recetas.push(receta1)
-
-    renderRecetas(recetas)
+            data.recetas.push(receta1)
+            renderRecetas(data.recetas)
+        })
+        .catch(error => {
+            /*             Swal.fire({
+                            title: "Ocurrio un error",
+                            text: "Al cargar las recetas algo fallo. Contacta a tu administrador.",
+                        }); */
+            throw new Error('Error al cargar el archivo JSON');
+        })
 
     /* cardRecetas.push(recetas) */
-    localStorage.setItem("recetas", JSON.stringify(recetas))
+    /*     localStorage.setItem("recetas", JSON.stringify(recetas)) */
 }
 
 function modificar() {
