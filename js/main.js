@@ -48,6 +48,7 @@ function agregar(e) {
             }
 
             data.recetas.push(receta1)
+            localStorage.setItem("data.recetas", JSON.stringify(data.recetas))
             renderRecetas(data.recetas)
         })
         .catch(error => {

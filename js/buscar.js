@@ -11,7 +11,8 @@ fetch("../recetas.json")
         return response.json();
     })
     .then(data => {
-        renderRecetasBuscador(data.recetas)
+        let mostrarRecetasAgregadas = JSON.parse(localStorage.getItem("data.recetas")) || []
+        renderRecetasBuscador(mostrarRecetasAgregadas)
     })
     .catch(error => {
         Swal.fire({
