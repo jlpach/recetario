@@ -41,7 +41,7 @@ function renderRecetasBuscador(cardItems) {
             const card = document.createElement("div")
             card.className = "secRecetaBuscar"
 
-            card.innerHTML = `<div class="card text-center mb-3 shadow-sm secRecetaBuscar" style = "width: 18rem;" >
+            card.innerHTML = `<div class="card text-center mb-3 shadow-sm" style = "width: 18rem;" >
                                 <div class="card-body">
                                     <h5 class="card-title">${receta.titulo}</h5>
                                     <p class="card-text">${receta.elaboracion}</p>
@@ -70,8 +70,6 @@ function buscarRecetas(e) {
         .then(data => {
             let inputTextoBuscador = document.getElementById("inputBuscador").value
 
-            /*             let textoEncontrado = data.recetas.find(encontrado => encontrado.titulo == inputTextoBuscador) */
-
             let textoEncontrado = data.recetas.find(encontrado => encontrado.titulo.includes(inputTextoBuscador))
 
             console.log(textoEncontrado.titulo)
@@ -93,20 +91,6 @@ function buscarRecetas(e) {
 
                 cardContainer.appendChild(card)
             }
-            /*             textoEncontrado.forEach(element => {
-                            const card = document.createElement("div")
-                            card.className = "secRecetaBuscar"
-            
-                            card.innerHTML = `<div class="card text-center mb-3 shadow-sm secRecetaBuscar" style = "width: 18rem;" >
-                                            <div class="card-body">
-                                                <h5 class="card-title">${element.titulo}</h5>
-                                                <p class="card-text">${element.elaboracion}</p>
-                                                <a href="#" class="btn btn-primary">Detalles</a>
-                                            </div>
-                                    </div >`
-            
-                            cardContainer.appendChild(card)
-                        }); */
         })
         .catch(error => {
             /*             Swal.fire({

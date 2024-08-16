@@ -41,6 +41,7 @@ function renderRecetas(arrRecetas) {
 
     arrRecetas.forEach(receta => {
         const card = document.createElement("div")
+        card.className = "secRecetaBuscar"
         card.innerHTML = `<div class="card text-center mb-3 shadow-sm" style = "width: 18rem;" >
                                 <div class="card-body">
                                     <h4 class="card-title">${receta.titulo}</h4>
@@ -49,7 +50,6 @@ function renderRecetas(arrRecetas) {
                                 </div>
                         </div >`
         recetasContainer.appendChild(card)
-        card.classList.add("listRecetasDinamica")
     })
 }
 
