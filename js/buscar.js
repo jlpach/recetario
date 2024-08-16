@@ -63,8 +63,8 @@ function buscarRecetas(e) {
             return response.json();
         })
         .then(data => {
-            let inputTextoBuscador = document.getElementById("inputBuscador").value
-            let textoEncontrado = data.recetas.find(encontrado => encontrado.titulo.includes(inputTextoBuscador))
+            let inputTextoBuscador = document.getElementById("inputBuscador").value.toLowerCase()
+            let textoEncontrado = data.recetas.find(encontrado => encontrado.titulo.toLowerCase().includes(inputTextoBuscador))
 
             try {
                 if (textoEncontrado != undefined) {
