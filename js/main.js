@@ -1,43 +1,9 @@
-/*
-1 - Declara variables, constantes y arrays
-2 - Crea 3 o más funciones JS que generen interacción.
-3 - Agrega los ciclos de iteración y/o condicionales necesarios, para que tu proyecto funcione correctamente.
-4 - Integra el uso de la Consola JS y de los cuadros de diálogo Prompt, Confirm y Alert
-*/
-
-// Dado que no se tiene conocimiento de base de datos aun, se crea un arreglo de objetos para 
-// ser usados como datos al momento de modificar o eliminar
-/* let recetas = [
-    {
-        id: 0,
-        titulo: "Frijol con puerco",
-        ingredientes: "Puerco, Frijol",
-        elaboracion: "Colocar el frijol en agua hirviendo, meter el puerco en trozos al agua, servir"
-    },
-    {
-        id: 1,
-        titulo: "Chuletas",
-        ingredientes: "Chuletas, Sal",
-        elaboracion: "Salar las chuletas, ponerlas a freir en aceite, servir"
-    },
-    {
-        id: 2,
-        titulo: "Pollo empanizado",
-        ingredientes: "Pollo, Empanizador, Huevo, Aceite",
-        elaboracion: "Mezclar el pollo con el huevo y el empanizador, ponerlas a freir en aceite, servir"
-    }
-] */
-
 const cardRecetas = []
 
 let recetasContainer = document.getElementById("recetas-Container")
 
 function renderRecetas(arrRecetas) {
     recetasContainer.innerHTML = ""
-
-    /*     const listaRecetasTitulo = document.createElement("div")
-        listaRecetasTitulo.innerHTML = `<h3>Lista actualizada de recetas</h3>`
-        recetasContainer.appendChild(listaRecetasTitulo) */
 
     arrRecetas.forEach(receta => {
         const card = document.createElement("div")
@@ -46,14 +12,12 @@ function renderRecetas(arrRecetas) {
                                 <div class="card-body">
                                     <h4 class="card-title">${receta.titulo}</h4>
                                     <p class="card-text">${receta.elaboracion}</p>
-                                    <a href="#" class="btn btn-primary">Detalles</a>
+                                    <a href="../pages/detalle.html" class="btn btn-primary">Detalles</a>
                                 </div>
                         </div >`
         recetasContainer.appendChild(card)
     })
 }
-
-// Creacion de la lista de recetas disponibles para modificar o eliminar. 
 
 let miFormulario = document.getElementById("formulario")
 miFormulario.addEventListener("submit", agregar)
@@ -68,7 +32,10 @@ function agregar(e) {
     fetch("../recetas.json")
         .then(response => {
             if (!response.ok) {
-                throw new Error('Error al cargar el archivo JSON');
+                Swal.fire({
+                    title: "Ocurrio un error",
+                    text: "Al cargar las recetas algo fallo. Contacta a tu administrador.",
+                });
             }
             return response.json();
         })
@@ -84,16 +51,17 @@ function agregar(e) {
             renderRecetas(data.recetas)
         })
         .catch(error => {
-            /*             Swal.fire({
-                            title: "Ocurrio un error",
-                            text: "Al cargar las recetas algo fallo. Contacta a tu administrador.",
-                        }); */
-            throw new Error('Error al cargar el archivo JSON');
+            Swal.fire({
+                title: "Ocurrio un error",
+                text: "Al cargar las recetas algo fallo. Contacta a tu administrador.",
+            });
         })
-
-    /* cardRecetas.push(recetas) */
-    /*     localStorage.setItem("recetas", JSON.stringify(recetas)) */
 }
+
+
+
+
+
 
 function modificar() {
     // Mostrar lista de recetas para seleccionar una a modificar

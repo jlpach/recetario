@@ -36,5 +36,107 @@
 
 		<title>Recetario - Detalles de la receta</title>
 	</head>
-	<body></body>
+	<body>
+		<header class="header-menu-container">
+			<a href="../index.html"
+				><img
+					src="../img/logo.png"
+					alt="Logotipo imagenes de la vida"
+					class="logo-img" />
+			</a>
+
+			<nav class="navbar navbar-expand-lg">
+				<div class="container-fluid">
+					<button
+						class="navbar-toggler"
+						type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#navbarNavAltMarkup"
+						aria-controls="navbarNavAltMarkup"
+						aria-expanded="false"
+						aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+						<div class="navbar-nav">
+							<a
+								class="nav-link active"
+								aria-current="page"
+								href="../index.html"
+								>Inicio</a
+							>
+							<a class="nav-link" href="./crear.html">Nueva Receta</a>
+							<a class="nav-link" href="./buscar.html">Buscar</a>
+						</div>
+					</div>
+				</div>
+			</nav>
+		</header>
+		<main>
+			<!-- Seccion portada -->
+			<section class="portada-container">
+				<img
+					src="../img/e-book_recetas.jpg"
+					alt="Retrato del fotografo"
+					class="portada-img-main" />
+			</section>
+			<!-- Finaliza Seccion portada -->
+			<section class="seccionDetalles"></section>
+		</main>
+
+		<!-- Footer -->
+		<footer class="footer-container">
+			<div class="footer-1">
+				<p class="footer-1-suscribete">SUSCRIBETE</p>
+				<p class="footer-1-desc">
+					Regístrate con tu dirección de correo electrónico para recibir
+					noticias e impresiones exclusivas
+				</p>
+				<form>
+					<div class="suscribirse-email">
+						<input
+							type="email"
+							class="email"
+							name="email"
+							placeholder="Ingresa tu email" />
+						<input type="button" class="button-suscribete" value="Suscribete" />
+					</div>
+				</form>
+			</div>
+			<div class="footer-2">
+				<ul>
+					<li>
+						<a href="./pages/crear.html" rel="noopener noreferrer"
+							>Crear Recetas</a
+						>
+					</li>
+					<li>
+						<a href="./pages/buscar.html" rel="noopener noreferrer">Buscar</a>
+					</li>
+				</ul>
+			</div>
+			<div class="footer-4">
+				<h2>Encuentranos en:</h2>
+				<iframe
+					src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d2587.1200789467275!2d-89.65888643192989!3d21.08489692832493!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1709778957201!5m2!1ses-419!2smx"
+					width="400"
+					height="300"
+					class="iframe-maps-mobile"
+					style="border: 0"
+					allowfullscreen=""
+					loading="lazy"
+					referrerpolicy="no-referrer-when-downgrade"></iframe>
+			</div>
+			<div class="footer-3">
+				<div class="text-footer"><p>RECETARIOS DE CASA</p></div>
+				<div class="text-reservado"><p>@ Derechos Reservados</p></div>
+			</div>
+		</footer>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+			crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	</body>
 </html>
