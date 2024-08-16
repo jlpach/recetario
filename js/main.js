@@ -48,7 +48,7 @@ function agregar(e) {
             }
 
             data.recetas.push(receta1)
-            localStorage.setItem("data.recetas", JSON.stringify(data.recetas))
+            localStorage.setItem("datarecetas", JSON.stringify(data.recetas))
             renderRecetas(data.recetas)
         })
         .catch(error => {
@@ -57,61 +57,6 @@ function agregar(e) {
                 text: "Al cargar las recetas algo fallo. Contacta a tu administrador.",
             });
         })
-}
-
-
-
-
-
-
-function modificar() {
-    // Mostrar lista de recetas para seleccionar una a modificar
-
-    // Verificar si el número ingresado es válido y está dentro del rango de recetas existentes
-    if (recetaSeleccionada >= 0 && recetaSeleccionada < recetas.length) {
-        // Mostrar los detalles de la receta seleccionada
-        let receta = recetas[recetaSeleccionada];
-
-        switch (opcionModificar) {
-            case 1:
-                // Modificar título
-                receta.titulo = nuevoTitulo;
-
-                // NOTA: Activa el inspector de codigo para ver el resultado en la consola
-                console.log(receta.titulo)
-                break;
-            case 2:
-                // Modificar ingredientes
-                let nuevosIngredientes = [];
-                /* let ingrediente = prompt("Ingrese un nuevo ingrediente (o dejar vacío para salir):"); */
-                while (ingrediente !== "") {
-                    nuevosIngredientes.push(ingrediente);
-                    /* ingrediente = prompt("Ingrese otro ingrediente (o dejar vacío para salir):"); */
-                }
-                receta.ingredientes = nuevosIngredientes;
-                /* alert("Ingredientes modificados exitosamente.");
- */
-                // NOTA: Activa el inspector de codigo para ver el resultado en la consola
-                console.log(receta.ingredientes)
-                break;
-            case 3:
-                // Modificar elaboración
-                /* let nuevaElaboracion = prompt("Ingrese la nueva elaboración:"); */
-                receta.elaboracion = nuevaElaboracion;
-                /* alert("Elaboración modificada exitosamente."); */
-
-                // NOTA: Activa el inspector de codigo para ver el resultado en la consola
-                console.log(receta.elaboracion)
-                break;
-            case 4:
-                alert("Saliendo de la modificación.");
-                break;
-            default:
-                alert("Opción inválida.");
-        }
-    } else {
-        alert("Número de receta inválido.");
-    }
 }
 
 function eliminar() {
