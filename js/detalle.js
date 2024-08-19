@@ -1,6 +1,9 @@
 let recetasContainer = document.getElementById("seccionDetalles")
+
 let mostrarRecetaAgregada = []
 mostrarRecetaAgregada = JSON.parse(localStorage.getItem("datarecetaseleccionada"))
+
+renderRecetas(mostrarRecetaAgregada)
 
 function renderRecetas(arrRecetas) {
     recetasContainer.innerHTML = ""
@@ -19,11 +22,10 @@ function renderRecetas(arrRecetas) {
                                     <a href="../pages/buscar.html" class="btn btn-primary eliminarBoton" id="eliminar">Eliminar</a>
                                 </div>
                         </div >`
+
         recetasContainer.appendChild(card)
     })
 }
-
-renderRecetas(mostrarRecetaAgregada)
 
 function eliminar() {
     // Mostrar lista de recetas para seleccionar una a eliminar

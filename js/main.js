@@ -2,6 +2,9 @@ const cardRecetas = []
 
 let recetasContainer = document.getElementById("recetas-Container")
 
+let miFormulario = document.getElementById("formulario")
+miFormulario.addEventListener("submit", agregar)
+
 function renderRecetas(arrRecetas) {
     recetasContainer.innerHTML = ""
 
@@ -18,9 +21,6 @@ function renderRecetas(arrRecetas) {
         recetasContainer.appendChild(card)
     })
 }
-
-let miFormulario = document.getElementById("formulario")
-miFormulario.addEventListener("submit", agregar)
 
 function agregar(e) {
     e.preventDefault()

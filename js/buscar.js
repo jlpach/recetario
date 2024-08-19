@@ -1,6 +1,10 @@
 let cardContainer = document.getElementById("cardRecetaBuscar")
+
 mostrarRecetasAgregadas = []
 mostrarRecetasAgregadas = JSON.parse(localStorage.getItem("datarecetas"))
+
+let entradaBuscarRecetas = document.getElementById("buscador")
+entradaBuscarRecetas.addEventListener("keyup", buscarRecetas)
 
 fetch("../recetas.json")
     .then(response => {
@@ -13,7 +17,6 @@ fetch("../recetas.json")
         return response.json();
     })
     .then(data => {
-        /* let mostrarRecetasAgregadas = JSON.parse(localStorage.getItem("datarecetas")) || [] */
         renderRecetasBuscador(mostrarRecetasAgregadas)
     })
     .catch(error => {
@@ -57,6 +60,7 @@ function agregarRecetaDetalles() {
         boton.onclick = (e) => {
             const productId = e.currentTarget.id
             const selectedProduct = mostrarRecetasAgregadas.find(producto => producto.id == productId)
+
             recetasAgregadas = []
             recetasAgregadas.push(selectedProduct)
 
@@ -64,9 +68,6 @@ function agregarRecetaDetalles() {
         }
     })
 }
-
-let entradaBuscarRecetas = document.getElementById("buscador")
-entradaBuscarRecetas.addEventListener("keyup", buscarRecetas)
 
 function buscarRecetas(e) {
     e.preventDefault()
@@ -109,6 +110,7 @@ function buscarRecetas(e) {
             for (const receta of mostrarRecetasAgregadas) {
                 const card = document.createElement("div")
                 card.className = "secRecetaBuscar"
+
                 card.innerHTML = `<div class="card text-center mb-3 shadow-sm" style = "width: 18rem;" >
                                     <div class="card-body">
                                         <h5 class="card-title">${receta.titulo}</h5>
