@@ -1,4 +1,6 @@
 let cardContainer = document.getElementById("cardRecetaBuscar")
+mostrarRecetasAgregadas = []
+mostrarRecetasAgregadas = JSON.parse(localStorage.getItem("datarecetas"))
 
 fetch("../recetas.json")
     .then(response => {
@@ -11,7 +13,7 @@ fetch("../recetas.json")
         return response.json();
     })
     .then(data => {
-        let mostrarRecetasAgregadas = JSON.parse(localStorage.getItem("datarecetas")) || []
+        /* let mostrarRecetasAgregadas = JSON.parse(localStorage.getItem("datarecetas")) || [] */
         renderRecetasBuscador(mostrarRecetasAgregadas)
     })
     .catch(error => {
@@ -38,13 +40,29 @@ function renderRecetasBuscador(cardItems) {
                                 <div class="card-body">
                                     <h5 class="card-title">${receta.titulo}</h5>
                                     <p class="card-text">${receta.elaboracion}</p>
-                                    <a href="../pages/detalle.html" class="btn btn-primary">Detalles</a>
+                                    <a href="../pages/detalle.html" class="btn btn-primary recetaAgregarDetalle" id="${receta.id}">Detalles</a>
                                 </div>
                         </div >`
 
             cardContainer.appendChild(card)
+
+            agregarRecetaDetalles()
         }
     }
+}
+
+function agregarRecetaDetalles() {
+    detalleBoton = document.querySelectorAll(".recetaAgregarDetalle")
+    detalleBoton.forEach(boton => {
+        boton.onclick = (e) => {
+            const productId = e.currentTarget.id
+            const selectedProduct = mostrarRecetasAgregadas.find(producto => producto.id == productId)
+            recetasAgregadas = []
+            recetasAgregadas.push(selectedProduct)
+
+            localStorage.setItem("datarecetaseleccionada", JSON.stringify(recetasAgregadas))
+        }
+    })
 }
 
 let entradaBuscarRecetas = document.getElementById("buscador")
@@ -69,11 +87,13 @@ function buscarRecetas(e) {
                             <div class="card-body">
                                 <h5 class="card-title">${textoEncontrado.titulo}</h5>
                                 <p class="card-text">${textoEncontrado.elaboracion}</p>
-                                <a href="../pages/detalle.html" class="btn btn-primary">Detalles</a>
+                                <a href="../pages/detalle.html" class="btn btn-primary recetaAgregarDetalle" id="${textoEncontrado.id}">Detalles</a>
                             </div>
                     </div >`
 
                 cardContainer.appendChild(card)
+
+                agregarRecetaDetalles()
             }
         } catch {
             Swal.fire({
@@ -93,11 +113,13 @@ function buscarRecetas(e) {
                                     <div class="card-body">
                                         <h5 class="card-title">${receta.titulo}</h5>
                                         <p class="card-text">${receta.elaboracion}</p>
-                                        <a href="../pages/detalle.html" class="btn btn-primary">Detalles</a>
+                                        <a href="../pages/detalle.html" class="btn btn-primary recetaAgregarDetalle" id="${receta.id}">Detalles</a>
                                     </div>
                             </div >`
 
                 cardContainer.appendChild(card)
+
+                agregarRecetaDetalles()
             }
         }
     } catch (error) {
@@ -106,71 +128,4 @@ function buscarRecetas(e) {
             text: "Al cargar las recetas algo fallo. Contacta a tu administrador.",
         });
     }
-
-    /*
-    fetch("../recetas.json")
-        .then(response => {
-            if (!response.ok) {
-                Swal.fire({
-                    title: "Ocurrio un error",
-                    text: "Al cargar las recetas algo fallo. Contacta a tu administrador.",
-                });
-            }
-            return response.json();
-        })
-        .then(data => {
-            let inputTextoBuscador = document.getElementById("inputBuscador").value.toLowerCase()
-            let textoEncontrado = data.recetas.find(encontrado => encontrado.titulo.toLowerCase().includes(inputTextoBuscador))
-
-            try {
-                if (textoEncontrado != undefined) {
-                    const card = document.createElement("div")
-                    card.className = "secRecetaBuscar"
-
-                    cardContainer.innerHTML = ""
-
-                    card.innerHTML = `<div class="card text-center mb-3 shadow-sm secRecetaBuscar" style = "width: 18rem;" >
-                                <div class="card-body">
-                                    <h5 class="card-title">${textoEncontrado.titulo}</h5>
-                                    <p class="card-text">${textoEncontrado.elaboracion}</p>
-                                    <a href="../pages/detalle.html" class="btn btn-primary">Detalles</a>
-                                </div>
-                        </div >`
-
-                    cardContainer.appendChild(card)
-                }
-            } catch {
-                Swal.fire({
-                    icon: "info",
-                    title: "Oops...",
-                    text: "No se encontró ninguna receta. Intenta con otra palabra clave."
-                });
-            }
-
-            if (inputTextoBuscador === '') {
-                cardContainer.innerHTML = ""
-
-                for (const receta of data.recetas) {
-                    const card = document.createElement("div")
-                    card.className = "secRecetaBuscar"
-                    card.innerHTML = `<div class="card text-center mb-3 shadow-sm" style = "width: 18rem;" >
-                                        <div class="card-body">
-                                            <h5 class="card-title">${receta.titulo}</h5>
-                                            <p class="card-text">${receta.elaboracion}</p>
-                                            <a href="../pages/detalle.html" class="btn btn-primary">Detalles</a>
-                                        </div>
-                                </div >`
-
-                    cardContainer.appendChild(card)
-                }
-            }
-        })
-        .catch(error => {
-            Swal.fire({
-                title: "Ocurrio un error",
-                text: "Al cargar las recetas algo fallo. Contacta a tu administrador.",
-            });
-
-        })
-        */
 }

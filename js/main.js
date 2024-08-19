@@ -58,27 +58,3 @@ function agregar(e) {
             });
         })
 }
-
-function eliminar() {
-    // Mostrar lista de recetas para seleccionar una a eliminar
-    /* let recetaSeleccionada = parseInt(prompt("Ingrese el número de la receta que desea eliminar: \n" + concatIdTitulo)); */
-
-    // Verificar si el número ingresado es válido y está dentro del rango de recetas existentes
-    if (recetaSeleccionada >= 0 && recetaSeleccionada < recetas.length) {
-        // Confirmar eliminación con el usuario
-        /*  let confirmarEliminar = confirm("¿Estás seguro que deseas eliminar la receta '" + recetas[recetaSeleccionada].titulo + "'?"); */
-
-        if (confirmarEliminar) {
-            // Eliminar la receta del array
-            recetas.splice(recetaSeleccionada, 1);
-            alert("Receta eliminada exitosamente.");
-        } else {
-            alert("Eliminación cancelada.");
-        }
-    } else {
-        alert("Número de receta inválido.");
-    }
-
-    // NOTA: Activa el inspector de codigo para ver el resultado en la consola
-    console.log(recetas)
-}
