@@ -16,7 +16,7 @@ function renderRecetas(arrRecetas) {
                                     <h5>Elaboración:</h5>
                                     <p class="card-text">${receta.elaboracion}</p>
                                     <a href="../pages/buscar.html" class="btn btn-primary" id="regresar">Regresar</a>
-                                    <a href="../pages/buscar.html" class="btn btn-primary" id="eliminar">Eliminar</a>
+                                    <a href="../pages/buscar.html" class="btn btn-primary eliminarBoton" id="eliminar">Eliminar</a>
                                 </div>
                         </div >`
         recetasContainer.appendChild(card)
