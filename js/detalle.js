@@ -3,6 +3,8 @@ let recetasContainer = document.getElementById("seccionDetalles")
 let mostrarRecetaAgregada = []
 mostrarRecetaAgregada = JSON.parse(localStorage.getItem("datarecetaseleccionada"))
 
+todasLasRecetasAgregadas = JSON.parse(localStorage.getItem("datarecetas")) || []
+
 renderRecetas(mostrarRecetaAgregada)
 
 function renderRecetas(arrRecetas) {
@@ -59,6 +61,7 @@ recetasContainer.addEventListener("click", function (e) {
 
 function eliminar(arrBorrarRecetas) {
     arrBorrarRecetas.forEach(borrado => {
-        console.log(borrado.id)
+        todasLasRecetasAgregadas.splice(borrado.id - 1, 1)
+        localStorage.setItem("datarecetas", JSON.stringify(todasLasRecetasAgregadas))
     })
 }
