@@ -19,7 +19,7 @@ function renderRecetas(arrRecetas) {
                                     <h5>Elaboración:</h5>
                                     <p class="card-text">${receta.elaboracion}</p>
                                     <a href="../pages/buscar.html" class="btn btn-primary" id="regresar">Regresar</a>
-                                    <a href="../pages/buscar.html" class="btn btn-primary eliminarBoton" id="eliminar">Eliminar</a>
+                                    <a href="#" class="btn btn-primary eliminarBoton" id="eliminar">Eliminar</a>
                                 </div>
                         </div >`
 
@@ -27,25 +27,38 @@ function renderRecetas(arrRecetas) {
     })
 }
 
-function eliminar() {
-    // Mostrar lista de recetas para seleccionar una a eliminar
-    /* let recetaSeleccionada = parseInt(prompt("Ingrese el número de la receta que desea eliminar: \n" + concatIdTitulo)); */
+/* let eliminarRecetaBoton = document.getElementById("eliminar") */
+recetasContainer.addEventListener("click", function (e) {
+    e.preventDefault()
+    if (e.target && e.target.id === "eliminar") {
+        Swal.fire({
+            title: "¿Estas seguro de borrar la receta?",
+            text: "¡No podras revertir la acción!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "¡Si, borralo!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                eliminar(mostrarRecetaAgregada)
 
-    // Verificar si el número ingresado es válido y está dentro del rango de recetas existentes
-    if (recetaSeleccionada >= 0 && recetaSeleccionada < recetas.length) {
-        // Confirmar eliminación con el usuario
-        /*  let confirmarEliminar = confirm("¿Estás seguro que deseas eliminar la receta '" + recetas[recetaSeleccionada].titulo + "'?"); */
-
-        if (confirmarEliminar) {
-            // Eliminar la receta del array
-            recetas.splice(recetaSeleccionada, 1);
-            alert("Receta eliminada exitosamente.");
-        } else {
-            alert("Eliminación cancelada.");
-        }
-    } else {
-        alert("Número de receta inválido.");
+                Swal.fire({
+                    title: "¡Borrado!",
+                    text: "Receta borrada exitosamente.",
+                    icon: "success"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.assign("../pages/buscar.html");
+                    }
+                });
+            }
+        });
     }
+})
 
-    // NOTA: Activa el inspector de codigo para ver el resultado en la consola
+function eliminar(arrBorrarRecetas) {
+    arrBorrarRecetas.forEach(borrado => {
+        console.log(borrado.id)
+    })
 }
