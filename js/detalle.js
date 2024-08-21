@@ -8,11 +8,11 @@ todasLasRecetasAgregadas = JSON.parse(localStorage.getItem("datarecetas")) || []
 renderRecetas(mostrarRecetaAgregada)
 
 function renderRecetas(arrRecetas) {
-    recetasContainer.innerHTML = ""
+    recetasContainer.innerHTML = "";
 
     arrRecetas.forEach(receta => {
-        const card = document.createElement("div")
-        card.className = "secRecetaBuscar"
+        const card = document.createElement("div");
+        card.className = "secRecetaBuscar";
         card.innerHTML = `<div class="card text-center mb-3 shadow-sm" style = "width: 18rem;" >
                                 <div class="card-body">
                                     <h4 class="card-title">${receta.titulo}</h4>
@@ -21,29 +21,29 @@ function renderRecetas(arrRecetas) {
                                     <h5>Elaboración:</h5>
                                     <p class="card-text">${receta.elaboracion}</p>
                                     <a href="../pages/buscar.html" class="btn btn-primary" id="regresar">Regresar</a>
-                                    <a href="#" class="btn btn-primary eliminarBoton" id="eliminar">Eliminar</a>
+                                    <a href="#" class="btn btn-primary eliminarBoton" data-id="${receta.id}">Eliminar</a>
                                 </div>
-                        </div >`
+                        </div>`;
 
-        recetasContainer.appendChild(card)
-    })
+        recetasContainer.appendChild(card);
+    });
 }
 
-/* let eliminarRecetaBoton = document.getElementById("eliminar") */
 recetasContainer.addEventListener("click", function (e) {
-    e.preventDefault()
-    if (e.target && e.target.id === "eliminar") {
+    e.preventDefault();
+    if (e.target && e.target.classList.contains("eliminarBoton")) {
+        const recetaId = e.target.getAttribute("data-id");
         Swal.fire({
-            title: "¿Estas seguro de borrar la receta?",
-            text: "¡No podras revertir la acción!",
+            title: "¿Estás seguro de borrar la receta?",
+            text: "¡No podrás revertir la acción!",
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "¡Si, borralo!"
+            confirmButtonText: "¡Sí, bórralo!"
         }).then((result) => {
             if (result.isConfirmed) {
-                eliminar(mostrarRecetaAgregada)
+                eliminar(recetaId);
 
                 Swal.fire({
                     title: "¡Borrado!",
@@ -57,11 +57,12 @@ recetasContainer.addEventListener("click", function (e) {
             }
         });
     }
-})
+});
 
-function eliminar(arrBorrarRecetas) {
-    arrBorrarRecetas.forEach(borrado => {
-        todasLasRecetasAgregadas.splice(borrado.id - 1, 1)
-        localStorage.setItem("datarecetas", JSON.stringify(todasLasRecetasAgregadas))
-    })
+function eliminar(id) {
+    const posicion = todasLasRecetasAgregadas.findIndex(receta => receta.id == id);
+    if (posicion !== -1) {
+        todasLasRecetasAgregadas.splice(posicion, 1);
+        localStorage.setItem("datarecetas", JSON.stringify(todasLasRecetasAgregadas));
+    }
 }
